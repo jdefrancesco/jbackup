@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 set -euo pipefail
 
-# restore-backup-gum.zsh
 
 HAVE_GUM=0
 if command -v gum >/dev/null 2>&1; then
@@ -11,7 +10,7 @@ fi
 usage() {
   cat <<'EOF'
 Usage:
-  restore-backup-gum.zsh -d DEST_ROOT -o OUTPUT_DIR [-s SNAPSHOT] [-p SUBPATH] [-n] [-v] [-l]
+  jrestore.zsh -d DEST_ROOT -o OUTPUT_DIR [-s SNAPSHOT] [-p SUBPATH] [-n] [-v] [-l]
 
 Required:
   -d DEST_ROOT      Backup root containing snapshots
@@ -28,10 +27,10 @@ Optional:
   -h                Show help
 
 Examples:
-  restore-backup-gum.zsh -d /mnt/backups/macbook -l
-  restore-backup-gum.zsh -d /mnt/backups/macbook -s 2026-03-31_103000 -o ~/restore
-  restore-backup-gum.zsh -d backup@nas:/srv/backups/macbook -o ~/restore
-  restore-backup-gum.zsh -d /mnt/backups/macbook -s 2026-03-31_103000 -p Documents -o ~/restore
+  jrestore.zsh -d /mnt/backups/macbook -l
+  jrestore.zsh -d /mnt/backups/macbook -s 2026-03-31_103000 -o ~/restore
+  jrestore.zsh -d backup@nas:/srv/backups/macbook -o ~/restore
+  jrestore.zsh -d /mnt/backups/macbook -s 2026-03-31_103000 -p Documents -o ~/restore
 EOF
 }
 

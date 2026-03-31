@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 set -euo pipefail
 
-# incremental-backup-gum.zsh
+# ZSH script that provides incremental backups via rsync. Simple but effective. Must have GUM.
 
 umask 077
 zmodload zsh/system 2>/dev/null || true
@@ -18,7 +18,7 @@ fi
 usage() {
   cat <<'EOF'
 Usage:
-  incremental-backup-gum.zsh -s SOURCE -d DESTINATION [-e EXCLUDES] [-k KEEP] [-n] [-v]
+  jback.zsh -s SOURCE -d DESTINATION [-e EXCLUDES] [-k KEEP] [-n] [-v]
 
 Required:
   -s SOURCE         Source directory to back up
@@ -44,12 +44,12 @@ banner() {
       --border-foreground 212 \
       --foreground 231 \
       --background 57 \
-      "Incremental Backup" \
+      "JBackup - Incremental Backup" \
       "rsync snapshot backup for Linux + macOS"
   else
     print
     print "=================================="
-    print "  Incremental Backup"
+    print "  JBackup Incremental Backup"
     print "  rsync snapshot backup"
     print "=================================="
     print
